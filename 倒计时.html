@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box {
+            width: 90%;
+            margin: 0 auto;
+            font-size: 13px;
+            color: red;
+            text-align: center;
+            line-height: 250%;
+
+        }
+
+        a {
+            line-height: 250%;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 0.15rem;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="box">
+</div>
+
+
+<button id="btn1">   暂停</button>
+<button id="btn2">   开始</button>
+
+
+
+<script type="text/javascript">
+    window.on
+    var oDiv = document.getElementById("box");
+    function Show(year, month, day) {
+        var now = new Date();
+        var endDate = new Date(year, month - 1, day);
+        var leftTime = endDate - now;
+        var leftsecond = parseInt(leftTime / 1000);
+        var day1 = parseInt(leftsecond / (60 * 60 * 24));
+        var hour = parseInt((leftsecond - day1 * 24 * 60 * 60) / 3600);
+        var minute = parseInt((leftsecond - day1 * 24 * 60 * 60 - hour * 60 * 60) / 60);
+        var second = parseInt(leftsecond - day1 * 24 * 60 * 60 - hour * 60 * 60 - minute * 60);
+        oDiv.innerHTML = "<a>" + day1 + "</a>" + ":" +"<a>" + hour + "</a>" + ":" + "<a>" + minute + "</a>" + ":" + "<a>" + second + "</a>";
+    }
+    Show(2018, 1, 1);
+
+
+    var  time=  setInterval(function () {
+        Show(2018, 1, 1);
+    }, 1);
+
+    btn1.onclick=function(){
+        clearInterval(time)
+        return
+    }
+    btn2.onclick=function(){
+          setInterval(function () {
+            Show(2018, 1, 1);
+        }, 1);
+    }
+
+
+</script>
+
+</body>
